@@ -7,6 +7,8 @@ import { ethers } from "ethers";
 // const ethers = require("ethers")
 import { useState, } from "react";
 
+import Button from '@mui/material/Button';
+
 const web3Modal = new Web3Modal({
   network: "rinkeby",
   theme: "light", // optional, 'dark' / 'light',
@@ -43,13 +45,28 @@ function App() {
         <br />
         {connectedAccount && <p>Connected to ${connectedAccount}</p>}
         {!connectedAccount ? (
-          <button onClick={connectWeb3Wallet}>Connect Wallet</button>
+          <Button variant="contained" onClick={connectWeb3Wallet}>Connect Wallet</Button>
         ) : (
-          <button onClick={disconnectWeb3Modal}>Disconnect</button>
+          <Button variant="contained" onClick={disconnectWeb3Modal}>Disconnect</Button>
         )}
       </header>
     </div>
   );
+  // return (
+  //   <div className="App">
+  //     <header className="App-header">
+  //       <img src={logo} className="App-logo" alt="logo" />
+  //       <br />
+  //       {connectedAccount && <p>Connected to ${connectedAccount}</p>}
+  //       {!connectedAccount ? (
+  //         <button onClick={connectWeb3Wallet}>Connect Wallet</button>
+  //         <Button variant="contained">Contained</Button>
+  //       ) : (
+  //         <button onClick={disconnectWeb3Modal}>Disconnect</button>
+  //       )}
+  //     </header>
+  //   </div>
+  // );
 }
 
 export default App;
